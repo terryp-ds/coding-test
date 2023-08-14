@@ -5,17 +5,11 @@ r,c,t = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(r)]
 dy = [1,-1,0,0]
 dx = [0,0,1,-1]
-f = 0
 
 for y in range(r):
-    if f:
+    if arr[y][0] == -1:
+        loc = (y,0)
         break
-    
-    for x in range(c):
-        if arr[y][x] == -1:
-            loc = (y,x)
-            f = 1
-            break
 
 for _ in range(t):
     arr2 = [[0]*c for _ in range(r)]
