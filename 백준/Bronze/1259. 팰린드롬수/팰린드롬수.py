@@ -1,9 +1,10 @@
 import sys
+input = sys.stdin.readline
+
 while 1:
-    s=sys.stdin.readline().strip()
-    if s=='0':
+    string = input().rstrip()
+
+    if string == '0':
         break
-    if s==s[::-1]:
-        print('yes')
-    else:
-        print('no')
+
+    print('yes' if string == string[::-1] else 'no')
