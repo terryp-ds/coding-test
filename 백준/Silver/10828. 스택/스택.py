@@ -1,13 +1,14 @@
-from collections import deque
 import sys
+input = sys.stdin.readline
+
 class Stack:
     def __init__(self):
-        self.data=deque()
+        self.data=[]
     def push(self, x):
-        self.data.appendleft(x)
+        self.data.append(x)
     def pop(self):
         if self.data:
-            print(self.data.popleft())
+            print(self.data.pop())
         else:
             print(-1)
     def size(self):
@@ -15,11 +16,12 @@ class Stack:
     def empty(self):
         print(int(len(self.data)==0))
     def top(self):
-        print(self.data[0] if self.data else -1)
-        
+        print(self.data[-1] if self.data else -1)  
+
 n=int(input())
+c=[input().rstrip().split() for i in range(n)]
 s=Stack()
-c=[sys.stdin.readline().strip().split() for i in range(n)]
+
 for i in c:
     if len(i) == 2:
         eval(f's.push({i[1]})')
