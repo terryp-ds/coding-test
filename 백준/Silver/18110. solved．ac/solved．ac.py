@@ -10,4 +10,4 @@ else:
     arr = [int(input()) for _ in range(n)]
     cut = int(n*0.15+0.5)
 
-    print(int(sum(sorted(arr)[cut:len(arr)-cut])/(len(arr)-2*cut)+0.5))
+    print(int(sum(sorted(arr)[cut:n-cut])/(n-2*cut)+0.5))
