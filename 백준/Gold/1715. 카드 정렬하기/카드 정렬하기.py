@@ -3,10 +3,8 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-heap = []
-
-for _ in range(n):
-    heapq.heappush(heap, int(input()))
+heap = [int(input()) for _ in range(n)]
+heapq.heapify(heap)
 
 ans = 0
 
