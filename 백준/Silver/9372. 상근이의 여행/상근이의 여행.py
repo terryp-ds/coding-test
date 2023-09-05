@@ -1,6 +1,6 @@
 import sys
-I = sys.stdin.readline
-for _ in range(int(I())):
-    n,m = map(int, I().split())
+input = sys.stdin.readline
+for _ in range(int(input())):
+    n,m = map(int, input().split())
     print(n-1)
-    _ = [I() for _ in range(m)]
+    _ = [input() for _ in range(m)]
