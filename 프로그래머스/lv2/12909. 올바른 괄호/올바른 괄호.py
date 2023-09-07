@@ -1,16 +1,9 @@
-from collections import deque
-
 def solution(s):
-    
-    queue = deque(s)
     stack = []
     
-    while queue:
-        
-        bracket = queue.popleft()
-        
-        if bracket == '(':
-            stack.append('(')
+    for i in s:
+        if i == '(':
+            stack.append(i)
             
         else:
             if stack:
