@@ -1,63 +1,33 @@
 import sys
+input=sys.stdin.readline
 
-input = sys.stdin.readline
+for i in range(int(input())):
+    m,n,k=map(int, input().split())
+    c=[list(map(int,list(input().split()))) for _ in range(k)]
+    g=[[0]*m for _ in range(n)]
 
-n_case = int(input())
+    for x,y in c:
+        g[y][x]=1
 
-for i in range(n_case):
-    m, n, k = map(int, input().split())
-    locs = [list(map(int, list(input().split()))) for _ in range(k)]
-    maps = [0]*m*n
+    dx=[1,-1,0,0]
+    dy=[0,0,1,-1]
 
-    for v in locs:
-        maps[v[0]+v[1]*m] = 1
+    v=[[0]*m for _ in range(n)]
 
-    maps = [maps[m*i:m*(i+1)] for i in range(n)]
+    for i in range(n):
+        for j in range(m):
+            if g[i][j] and not v[i][j]:
+                s=[(i,j)]
 
-    dx = [1, -1, 0, 0]
-    dy = [0, 0, 1, -1]
+                while s:
+                    y,x=s.pop()
+                    v[y][x]=i*m+j+1
 
-    graph = [[] for _ in range(m*n)]
+                    for k in range(4):
+                        nx=x+dx[k]
+                        ny=y+dy[k]
 
-    for y in range(n):
+                        if 0<=nx<m and 0<=ny<n and g[ny][nx] and not v[ny][nx]:
+                            s.append((ny,nx))
 
-        for x in range(m):
-
-            v = maps[y][x]
-
-            if v:
-                for i in range(4):
-
-                    nx = x + dx[i]
-                    ny = y + dy[i]
-
-                    if 0 <= nx < m and 0 <= ny < n and maps[ny][nx]:
-                        graph[y*m+x].append((y+dy[i])*m+(x+dx[i]))
-
-    visited = [0]*m*n
-    group = 0
-
-    for i in range(m*n):
-
-        y,x = i//m, i%m
-
-        if maps[y][x] and not visited[i]:
-
-            stack = [i]
-            group += 1
-
-            while stack:
-
-                vertex = stack.pop()
-
-                if not visited[vertex]:
-
-                    visited[vertex] = 1
-
-                    for v in graph[vertex]:
-                        if not visited[v]:
-                            
-                            stack.append(v)
-
-
-    print(group)
+    print(len(set([i for j in v for i in j])-set([0])))
