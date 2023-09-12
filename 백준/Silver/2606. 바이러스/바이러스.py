@@ -1,27 +1,23 @@
 import sys
+input=sys.stdin.readline
 
-input = sys.stdin.readline
+n,m=int(input()),int(input())
+g=[[] for _ in range(n+1)]
+e=[list(map(int, input().split())) for _ in range(m)]
 
-graph = [[] for _ in range(int(input()))]
-edges = [list(map(int, input().split())) for _ in range(int(input()))]
+for u,v in e:
+    g[u].append(v)
+    g[v].append(u)
 
-for v1, v2 in edges:
-    graph[v1-1].append(v2-1)
-    graph[v2-1].append(v1-1)
+v=[0]*(n+1)
+s=[1]
 
-stack = [0]
-visited = [0]*len(graph)
-c = -1
+while s:
+    c=s.pop()
+    if not v[c]:
+        v[c]=1
+        for x in g[c]:
+            if not v[x]:
+                s.append(x)
 
-while stack:
-    cur = stack.pop()
-
-    if not visited[cur]:
-        c += 1
-        visited[cur] = 1
-
-        for nex in graph[cur]:
-            if not visited[nex]:
-                stack.append(nex)
-
-print(c)
+print(sum(v)-1)
