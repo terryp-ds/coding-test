@@ -1,33 +1,21 @@
 import sys
-input = sys.stdin.readline
+input=sys.stdin.readline
 
-n, target = map(int, input().split())
-arr = sorted(map(int, input().split()), reverse=True)
-
-start, end = 1, arr[0]
-
-def cut_tree(trees, h):
-    s = 0
-
+def cut(h):
+    l=0
     for i in range(n):
-        
-        if trees[i] < h:
-            break
-        
-        else:
-            s += trees[i]-h
+        if a[i]<h: break
+        else: l+=a[i]-h
+    return l
 
-    return s
+n,t=map(int,input().split())
+a=sorted(map(int,input().split()),reverse=True)
+s,e=1,a[0]
 
+while s<=e:
+    m=(s+e)//2
+    c=cut(m)
+    if c<t: e=m-1
+    else: s=m+1
 
-while start <= end:
-    mid = (start+end)//2
-    cut = cut_tree(arr, mid)
-
-    if cut < target:
-        end = mid-1
-
-    else:
-        start = mid+1
-
-print(end)
+print(e)
