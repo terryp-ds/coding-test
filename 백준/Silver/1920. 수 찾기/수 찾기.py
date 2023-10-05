@@ -1,10 +1,7 @@
 import sys
+input=sys.stdin.readline
 input()
-a=set([int(i) for i in sys.stdin.readline().strip().split()])
+a=set([*map(int,input().split())])
 input()
-b=[int(i) for i in sys.stdin.readline().strip().split()]
-for i in b:
-    if i in a:
-        print(1)
-    else:
-        print(0)
+b=[*map(int,input().split())]
+print(*[int(i in a) for i in b],sep='\n')
