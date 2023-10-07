@@ -14,8 +14,7 @@ s,e=1,a[0]
 
 while s<=e:
     m=(s+e)//2
-    c=cut(m)
-    if c<t: e=m-1
+    if cut(m)<t: e=m-1
     else: s=m+1
 
 print(e)
