@@ -1,0 +1,1 @@
+n=int(input());print(-1 if n in (1,3) else n//5+[0,2,1,3,2][n%5])
