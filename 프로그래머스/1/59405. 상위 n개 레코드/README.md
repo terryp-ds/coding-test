@@ -1,6 +1,6 @@
 # [level 1] 상위 n개 레코드 - 59405 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59405?language=oracle) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59405?language=mysql) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2023년 11월 4일 0:35:53
+2023년 11월 4일 20:54:1
 
 ### 문제 설명
 
