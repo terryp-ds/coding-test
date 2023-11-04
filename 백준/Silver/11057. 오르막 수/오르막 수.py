@@ -1,3 +1,3 @@
-from math import factorial as f
+from math import comb
 n=int(input())
-print(f(n+9) // (f(9)*f(n)) % 10007)
+print(comb(n+9,n)%10007)
