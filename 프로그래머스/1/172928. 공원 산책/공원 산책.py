@@ -1,15 +1,49 @@
 def solution(park, routes):
-    r,c=len(park),len(park[0])
-    for y in range(r):
-        x=park[y].find('S')
-        if x>-1: break
-    d=dict(zip('NSWE',[(-1,0),(1,0),(0,-1),(0,1)]))
+
+    len_x = len(park[0])
+    len_y = len(park)
+    
+    for i in range(len_y):
+        if park[i].find('S') != -1 : 
+            location_x = park[i].index('S')
+            location_y = i
+        
+
     for route in routes:
-        o,n=route.split()
-        n=int(n)
-        for i in range(1,n+1):
-            ny,nx=y+d[o][0]*i,x+d[o][1]*i
-            if not (0<=ny<r and 0<=nx<c) or park[ny][nx]=='X': 
-                break
-        else: y,x=ny,nx
-    return [y,x]
+        direction, distance_str = route.split()
+        distance = int(distance_str)
+
+        if direction == 'E':
+            if location_x + distance < len_x:
+                for i in range(location_x+1, location_x + distance+1):
+                    if park[location_y][i] == 'X':
+                        break
+                else:
+                    location_x += distance
+
+        elif direction == 'N':
+            if location_y - distance >= 0:
+                for i in range(location_y-1, location_y - distance -1, -1):
+                    if park[i][location_x] == 'X':
+                        break
+                else:
+                    location_y -= distance
+
+        elif direction == 'S':
+            if location_y + distance < len_y:
+                for i in range(location_y+1, location_y + distance+1):
+                    if park[i][location_x] == 'X':
+                        break
+                else:
+                    location_y += distance
+
+        elif direction == 'W':
+            if location_x - distance >= 0:
+                for i in range(location_x-1, location_x - distance-1, -1):
+                    if park[location_y][i] == 'X':
+                        break
+                else:
+                    location_x -= distance
+
+    answer = [location_y, location_x]
+    return answer
