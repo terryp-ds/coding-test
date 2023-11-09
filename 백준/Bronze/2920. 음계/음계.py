@@ -1,4 +1,4 @@
-s=[*map(int,input().split())]
-if s==sorted(s): print('ascending')
-elif s==sorted(s,reverse=True): print('descending')
+s=input()[::2]
+if s=='12345678': print('ascending')
+elif s=='87654321': print('descending')
 else: print('mixed')
