@@ -1,45 +1,24 @@
 from collections import deque
-import sys
+n,m=map(int,input().split())
+a=[[*map(int,input().split())] for _ in range(n)]
+v=[[0]*m for _ in range(n)]
+for i in range(n):
+    if 2 in a[i]:
+        j=a[i].index(2)
+        break
+q=deque([(i,j)])
+dy,dx=[1,-1,0,0],[0,0,1,-1]
+while q:
+    y,x=q.popleft()
+    for k in range(4):
+        ny,nx=y+dy[k],x+dx[k]
+        if not (0<=ny<n and 0<=nx<m) or not a[ny][nx] or v[ny][nx]: continue
+        v[ny][nx]=v[y][x]+1
+        q+=[(ny,nx)]
+v[i][j]=0
 
-input = sys.stdin.readline
+for i in range(n):
+    for j in range(m):
+        if not v[i][j] and a[i][j]==1: v[i][j]=-1
 
-n,m = map(int, input().split())
-maps = [list(map(int, input().rstrip().split())) for _ in range(n)]
-visited = [[0]*m for _ in range(n)]
-level = [[0]*m for _ in range(n)]
-start = None
-
-for y in range(n):
-    for x in range(m):
-        if maps[y][x] == 2:
-            start = [y,x]
-
-
-queue = deque([start])
-
-dx = [1,-1,0,0]
-dy = [0,0,1,-1]
-
-while queue:
-    y,x = queue.popleft()
-    
-    if not visited[y][x]:
-        visited[y][x] = 1
-        
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            
-            if 0 <= nx < m and 0 <= ny < n and not visited[ny][nx]:
-                if maps[ny][nx] and not level[ny][nx]:
-                    queue.append([ny, nx])
-                    level[ny][nx] = level[y][x] + 1
-
-for y in range(n):
-    for x in range(m):
-        if level[y][x] == 0 and maps[y][x] == 1:
-            level[y][x] = -1
-        
-
-for row in level:
-    print(*row, sep=' ')
+for r in v: print(*r)
