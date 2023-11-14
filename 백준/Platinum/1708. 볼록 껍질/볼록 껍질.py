@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 def ccw(a,b,c): return ((b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]))>0
 def cv(a):
     q=[]
