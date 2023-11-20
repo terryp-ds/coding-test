@@ -1,19 +1,11 @@
 import sys
-input = sys.stdin.readline
-
+input=sys.stdin.readline
 for _ in range(int(input())):
-    n = int(input())
-    arr = [list(map(int, input().split())) for _ in range(2)]
-
-    if n == 1:
-        print(max(arr[0][0], arr[1][0]))
-        continue
-    
-    arr[0][1] += arr[1][0]
-    arr[1][1] += arr[0][0]
-
-    for i in range(2,n):
-        arr[0][i] += max(arr[1][i-1], arr[1][i-2])
-        arr[1][i] += max(arr[0][i-1], arr[0][i-2])
-
-    print(max(arr[0][-1], arr[1][-1]))
+    n=int(input())
+    a=[[*map(int,input().split())] for _ in range(2)]
+    d=[0]*n
+    d[0]=[a[0][0],a[1][0]]
+    if n==1: print(max(d[0])); continue
+    d[1]=[d[0][1]+a[0][1],d[0][0]+a[1][1]]
+    for i in range(2,n): d[i]=[max(d[i-1][1],d[i-2][1])+a[0][i],max(d[i-1][0],d[i-2][0])+a[1][i]]
+    print(max(d[-1]))
