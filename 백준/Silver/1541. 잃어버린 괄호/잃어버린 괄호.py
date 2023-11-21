@@ -1,2 +1,2 @@
-s = [sum(map(int, i.split('+'))) for i in input().split('-')]
-print(s[0]-sum(s[1:]))
+s=[sum(map(int,x.split('+'))) for x in input().split('-')]
+print(s[0]*2-sum(s))
