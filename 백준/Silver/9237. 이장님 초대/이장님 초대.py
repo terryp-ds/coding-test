@@ -1,0 +1,1 @@
+print(max([i+j+2 for i,j in zip(range(int(input())),sorted([*map(int,input().split())],reverse=True))]))
