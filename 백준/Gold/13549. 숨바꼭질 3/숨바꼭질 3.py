@@ -1,26 +1,17 @@
-import heapq
-
-n,k = map(int, input().split())
-visited = [100000]*200001
-visited[n] = 0
-heap = [(0, n)]
-
-while heap:
-    time, node = heapq.heappop(heap)
-
-    if node == k:
-        break
-
-    if node > 0 and time+1 < visited[node-1]:
-        visited[node-1] = time+1
-        heapq.heappush(heap, (time+1, node-1))
-
-    if node < k and time+1 < visited[node+1]:
-        visited[node+1] = time+1
-        heapq.heappush(heap, (time+1, node+1))
-
-    if 0 < node < k and time < visited[node*2]:
-        visited[node*2] = time
-        heapq.heappush(heap, (time, node*2))
-    
-print(visited[k])
+from heapq import *
+n,k=map(int,input().split())
+v={n:0}
+q=[(0,n)]
+while q:
+    t,c=heappop(q)
+    if c==k: break
+    if 0<c<k and c*2 not in v:
+        v[c*2]=t
+        heappush(q,(t,c*2))
+    if c>0 and c-1 not in v:
+        v[c-1]=t+1
+        heappush(q,(t+1,c-1))
+    if c<k and c+1 not in v:
+        v[c+1]=t+1
+        heappush(q,(t+1,c+1))
+print(v[k])
