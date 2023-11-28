@@ -1,14 +1,9 @@
 import sys
-
-input = sys.stdin.readline
-
-n,m = map(int, input().split())
-arr = list(map(int, input().split()))
-idx = [list(map(int, input().split())) for _ in range(m)]
-csum = [0]
-
-for i in range(n):
-    csum.append(csum[-1]+arr[i])
-
-
-print(*[csum[j]-csum[i-1] for i,j in idx], sep='\n')
+input=sys.stdin.readline
+n,m=map(int,input().split())
+a=[*map(int,input().split())]
+s=[0]*(n+1)
+for i in range(1,n+1): s[i]=s[i-1]+a[i-1]
+for _ in range(m): 
+    i,j=map(int,input().split())
+    print(s[j]-s[i-1])
