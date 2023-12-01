@@ -1,6 +1,3 @@
-from itertools import permutations
-n,m = map(int, input().split())
-nums = list(map(int, input().split()))
-
-for p in sorted(permutations(nums, m)):
-    print(*p, sep=' ')
+from itertools import *
+n,m=map(int,input().split())
+for p in permutations(sorted([*map(int,input().split())]),m):print(*p)
