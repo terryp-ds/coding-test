@@ -1,35 +1,20 @@
-import heapq
+from heapq import *
 import sys
-
-input = sys.stdin.readline
-
-v,e = map(int, input().split())
-s = int(input()) - 1
-edges = [list(map(int, input().split())) for _ in range(e)]
-graph = [[] for _ in range(v)]
-dist = [10**7]*v
-dist[s] = 0
-
-for v1,v2,w in edges:
-    graph[v1-1].append((v2-1, w))
-
-heap = [(0,s)]
-
-while heap:
-    time, node = heapq.heappop(heap)
-
-    if not dist[node]:
-        dist[node] = time
-
-    for v2,w in graph[node]:
-        alt = time + w
-
-        if alt < dist[v2]:
-            heapq.heappush(heap, (alt, v2))
-            dist[v2] = alt
-
-for i in range(v):
-    if dist[i] == 10**7:
-        dist[i] = 'INF'
-
-print(*dist, sep='\n')
+input=sys.stdin.readline
+f=float('inf')
+n,m=map(int,input().split())
+k=int(input())
+g=[[] for _ in range(n+1)]
+for _ in range(m):
+    s,e,w=map(int,input().split())
+    g[s]+=[(w,e)]
+v=[f]*(n+1)
+v[k]=0
+q=[(0,k)]
+while q:
+    w,c=heappop(q)
+    for a,x in g[c]:
+        if w+a<v[x]:
+            v[x]=w+a
+            heappush(q,(w+a,x))
+for i in v[1:]: print(i if i<f else 'INF')
