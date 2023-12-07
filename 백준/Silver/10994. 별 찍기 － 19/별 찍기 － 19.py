@@ -1,6 +1,10 @@
 n=int(input())
 m=4*n-3
-for i in range(m):
-    if i>m//2:i=m-i-1
-    if i&1: print(*['*' if ~j&1 & ~(i<=j<m-i)  else ' ' for j in range(m)], sep='')
-    else: print(*['*' if (~j&1) | (i<=j<m-i) else ' ' for j in range(m)], sep='')
+a=[[' ']*m for _ in range(m)]
+def r(i):
+    if i==m+1:return
+    for j in range(i,m-i): a[i][j],a[m-i-1][j]='*','*'
+    for j in range(i,m-i): a[j][i],a[j][m-i-1]='*','*'
+    r(i+2)
+r(0)
+for i in a:print(*i,sep='')
