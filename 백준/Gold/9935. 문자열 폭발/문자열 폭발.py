@@ -1,16 +1,10 @@
-string = input()
-pattern = input()
-
-stack = []
-length = len(pattern)
-c = 0
-
-for i in range(len(string)):
-    letter = string[i]
-    stack.append(letter)
-    if len(stack) >= length:
-        if ''.join(stack[-length:]) == pattern:
-            for _ in range(length):
-                stack.pop()
-
-print(''.join(stack) if stack else 'FRULA')
+s,p=input(),input()
+n=len(p)
+q=[]
+i=0
+while i<len(s):
+ q+=[s[i]]
+ if len(q)>=n and ''.join(q[-n:])==p: 
+  for _ in range(n):q.pop()
+ i+=1
+print(''.join(q) if q else 'FRULA')
