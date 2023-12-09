@@ -1,6 +1,6 @@
 # [level 2] 고양이와 개는 몇 마리 있을까 - 59040 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59040) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59040?language=oracle) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2023년 12월 6일 19:38:45
+2023년 12월 6일 19:38:59
 
 ### 문제 설명
 
