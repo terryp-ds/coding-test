@@ -1,14 +1,9 @@
 import sys
-
-input = sys.stdin.readline
-m,n = map(int, input().split())
-dict_1 = {}
-
-for i in range(m):
-    dict_1[i+1] = input().rstrip()
-
-dict_2 = dict(zip(dict_1.values(), dict_1.keys()))
-
-for _ in range(n):
-    q = input().rstrip()
-    print(dict_2[q] if q.isalpha() else dict_1[int(q)])
+input=sys.stdin.readline
+n,m=map(int,input().split())
+p=[input().strip() for _ in range(n)]
+d=dict(zip(p,range(1,n+1)))
+r=dict(zip(range(1,n+1),p))
+for _ in range(m):
+    q=input().strip()
+    print(d[q] if q.isalpha() else r[int(q)])
