@@ -1,9 +1,4 @@
-n = int(input())
-dic = {1:1, 2:3}
-
-def fib(k):
-    if k not in dic:
-        dic[k] = fib(k-1) + fib(k-2) * 2
-    return dic[k]
-
-print(fib(n) % 10007)
+n=int(input())
+d=[0,1,3]
+for i in range(3,n+1):d+=[(d[i-1]+d[i-2]*2)%10007]
+print(d[n])
