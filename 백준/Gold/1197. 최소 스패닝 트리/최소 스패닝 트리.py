@@ -1,32 +1,20 @@
-import heapq
+from heapq import *
 import sys
-input = sys.stdin.readline
-
-v,e = map(int, input().split())
-visited = [0]*(v+1)
-graph = [[] for _ in range(v+1)]
-
-for _ in range(e):
-    s,e,w = map(int, input().split())
-    graph[s].append((w,e))
-    graph[e].append((w,s))
-
-heap = [(0,1)]
-weight = 0
-cnt = 0
-
-while heap:
-    if cnt == v:
-        break
-
-    w,node = heapq.heappop(heap)
-
-    if not visited[node]:
-        visited[node] = 1
-        weight += w
-        cnt += 1
-
-        for edge in graph[node]:
-            heapq.heappush(heap, edge)
-
-print(weight)
+input=lambda:map(int,sys.stdin.readline().split())
+n,m=input()
+g=[[] for _ in range(n+1)]
+v=[0]*(n+1)
+for _ in range(m):
+ s,e,w=input()
+ g[s]+=[(w,e)]
+ g[e]+=[(w,s)]
+q=[(0,1)]
+i,t=0,0
+while q and i<n:
+ w,c=heappop(q)
+ if not v[c]:
+  v[c]=1
+  t+=w
+  i+=1
+  for e in g[c]: heappush(q,e)
+print(t)
