@@ -1,14 +1,10 @@
-n,r,c = map(int, input().split())
-
-s = 0
-
-while n > 0:
-    hf = 2**(n-1)
-    dr, dc = (r >= hf), (c >= hf)
-    s += (dr*2 + dc) * (hf**2)
-    r -= hf * dr
-    c -= hf * dc
-    n -= 1
-    
-
+n,r,c=map(int,input().split())
+s=0
+while n>0:
+ h=2**(n-1)
+ y,x=(r>=h),(c>=h)
+ s+=(y*2+x)*(h**2)
+ r-=h*y
+ c-=h*x
+ n-=1
 print(s+r*2+c)
