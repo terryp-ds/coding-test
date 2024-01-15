@@ -1,14 +1,7 @@
-import sys
-input = sys.stdin.readline
-
-n = int(input())
-arr = list(map(int, input().split()))
-
-lis = [1]*n
-
+n=int(input())
+a=[*map(int,input().split())]
+s=[1]*n
 for i in range(1,n):
-    for j in range(0,i):
-        if arr[i] > arr[j] and lis[i] < lis[j]+1:
-            lis[i] = lis[j] + 1
-
-print(max(lis))
+ for j in range(0,i):
+  if a[i]>a[j] and s[i]<s[j]+1:s[i]=s[j]+1
+print(max(s))
