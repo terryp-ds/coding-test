@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 05월 22일 19:32:02
+2025년 01월 07일 20:47:35
 
 ### 문제 설명
 
@@ -134,7 +134,7 @@ Empty
 
 <p>본 문제는 <a href="https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes" target="_blank" rel="noopener">Kaggle의 "Austin Animal Center Shelter Intakes and Outcomes"</a>에서 제공하는 데이터를 사용하였으며 <a href="https://opendatacommons.org/licenses/odbl/1.0/" target="_blank" rel="noopener">ODbL</a>의 적용을 받습니다.</p>
 
-<div class="footnotes">
+<div class="footnotes" bis_skin_checked="1">
 <hr>
 <ol>
 
