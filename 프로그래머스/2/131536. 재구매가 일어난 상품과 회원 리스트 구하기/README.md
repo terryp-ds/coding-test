@@ -1,6 +1,6 @@
 # [level 2] 재구매가 일어난 상품과 회원 리스트 구하기 - 131536 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131536?language=mysql) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131536) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2023년 12월 4일 22:4:55
+2025년 01월 08일 19:43:26
 
 ### 문제 설명
 
