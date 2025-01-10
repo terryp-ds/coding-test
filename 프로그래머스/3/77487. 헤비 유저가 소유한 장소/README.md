@@ -1,6 +1,6 @@
 # [level 3] 헤비 유저가 소유한 장소 - 77487 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/77487?language=mysql) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/77487) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 1월 2일 11:20:58
+2025년 01월 10일 15:59:14
 
 ### 문제 설명
 
